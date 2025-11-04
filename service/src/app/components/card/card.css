@@ -34,9 +34,12 @@
 }
 
 .card__stats__type {
-  color: whitesmoke;
+  color: black;
+  font-weight: bold;
+
   background-color: coral;
   border-radius: 5px;
+  
   padding: 5px;
   margin-right: 3px; /*espaçamento entre os elementos quando houver mais de uma tipagem p/ o pokemon. */
 }

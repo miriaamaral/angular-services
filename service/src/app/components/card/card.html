@@ -1,12 +1,29 @@
 <div class="card">
-  <!-- Como sei que uma div é filho do outro? eu repito o nome da classe pai e adiciono dois underlines e o nome da classe filho. Assim eu sei que essa div é filha da div card e as que vierem a seguir adicono o mesmo padrão: exemplo: card__stats__type -->
-<div class="card__title">
-<h3>CHARMANDER</h3>
-</div>
-<div class="card__body">
-<img src="" alt="imagem de um pokemon">
-</div>
-<div class="card__stats">
-<span class="card__stats__type">FIRE</span>
-</div>
+  <!-- Como sei que uma div é filho do outro? Como sei que uma div é filha da outra? Uso o padrão BEM (Bloco__Elemento--Modificador). Repito o nome da classe pai (card) e adiciono dois underlines (__) e o nome da classe filho (title). Ex: card__stats__type -->
+   
+  <div class="card__title">
+    <h3>{{ name }}</h3>
+    <!-- Aqui eu substitui o nome fixo do pokemon do h3 por uma interpolação da variável name que eu criei no card.ts. Interpolação é quando eu coloco duas chaves duplas {{}} e dentro delas eu coloco o nome de uma variável que eu quero exibir na tela. O Angular pega o valor da variável 'name' (que está no arquivo .ts) e exibe aqui. -->
+  </div>
+  <div class="card__body">
+    <!-- A 'src' da imagem também será dinâmica, vinda do .ts -->
+    <img src="" alt="imagem de um pokemon">
+  </div>
+  <div class="card__stats">
+    <!-- *ngFor é uma diretiva estrutural do Angular que permite percorrer sobre uma coleção de itens e renderizar um template para cada item. 
+    No caso do card de pokémon, podemos usar o *ngFor para exibir os tipos do pokémon dinamicamente. 
+      
+    Estou usando o novo controle de fluxo do Angular 17+ (recomendado):
+    - A sintaxe @for é mais moderna e performática que *ngFor
+    - O parâmetro 'track' é obrigatório e ajuda o Angular a identificar unicamente cada item
+    - No nosso caso, como 'type' é único, podemos usar ele mesmo como identificador
+    - Sintaxe: @for (itemDaIteracao of colecao; track identificadorUnico) -->
+    
+    @for (type of attributesTypes; track type) {
+      <span class="card__stats__type">
+        {{ type }}
+      </span>
+    }
+    <!-- O span fixo 'FIRE' que estava aqui foi removido, porque agora os tipos vêm dinamicamente do loop @for! -->
+  </div>
 </div>
