@@ -9,7 +9,9 @@
 // ele quem? => o Angular CLI (Command Line Interface), que é a ferramenta de linha de comando do Angular usada para criar, desenvolver e manter aplicações Angular.
 
 export const environment = {
-  production: true
+  production: true,
+  // URL base da API de pokémons para produção (ajuste conforme necessário):
+  pokeApi: 'https://pokeapi.co/api/v2'
 };
 
 

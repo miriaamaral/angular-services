@@ -10,7 +10,7 @@ import { Card } from "./components/card/card";
   <app-card></app-card>
   <router-outlet></router-outlet>
   `,
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('service');
