@@ -20,11 +20,11 @@
     - No nosso caso, como 'type' é único, podemos usar ele mesmo como identificador
     - Sintaxe: @for (itemDaIteracao of colecao; track identificadorUnico) -->
 
-    @for (type of attributesTypes; track type) {
-      <span class="card__stats__type">
-        {{ type }}
+      <span class="card__stats__type"
+      *ngFor="let t of pokemon.types"
+      >
+        {{ t.type.name }}
       </span>
-    }
     <!-- O span fixo 'FIRE' que estava aqui foi removido, porque agora os tipos vêm dinamicamente do loop @for! -->
   </div>
 </div>

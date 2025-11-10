@@ -11,10 +11,16 @@ import { PokemonData } from '../../models/pokemonData';
   styleUrls: ['./card.css'],
 })
 export class CardComponent implements OnInit {
-  pokemon: PokemonData | any
+  pokemon: PokemonData
   attributesTypes: string[] = ['FIRE', 'ROCK']
 
-  constructor(private service: PokemonService) {}
+  constructor(private service: PokemonService) {
+    this.pokemon = {
+    id: 0, name: '',
+    sprites: { front_default: '' },
+    types: []
+    }
+  }
 
   ngOnInit(): void {
     // buscar dados do pokemon e atualizar o card
@@ -28,10 +34,6 @@ export class CardComponent implements OnInit {
             sprites: res.sprites,
             types: res.types
           }
-
-      console.log(res)
-      console.log(this.pokemon)
-
       },
       error: (err: unknown) => console.error('Erro ao buscar pokemon', err),
       }
