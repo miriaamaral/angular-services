@@ -2,6 +2,7 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { PokemonData } from '../models/pokemonData';
 
 // conceito de direção de dependencias: significa que uma classe (componente, serviço etc) pode depender de outra classe para funcionar corretamente. No Angular, isso é feito através da injeção de dependência, onde o framework cuida de criar e fornecer as dependências necessárias para uma classe quando ela é instanciada.
 
@@ -19,16 +20,16 @@ import { Observable } from 'rxjs';
 
 export class PokemonService {
   private baseURL: string = '';
-  private pokeData: any
+  private pokeData: PokemonData | any;
 
   constructor(private http: HttpClient) {
     this.baseURL = environment.pokeApi; // pega a URL base do environment
   }
 
-  getPokemon(pokemonName: string): Observable<any> {
-    const pokeData = this.http.get(`${this.baseURL}/pokemon/${pokemonName.toLowerCase()}`);
-    console.log(pokeData);
-    return pokeData;
+  getPokemon(pokemonName: string): Observable<PokemonData> {
+    return this.http.get<PokemonData>(
+      `${this.baseURL}/pokemon/${pokemonName.toLowerCase()}`
+    );
   }
 }
 

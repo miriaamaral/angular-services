@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { PokemonService } from './services/pokemon';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,7 +14,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     // Register HttpClient provider (standalone pattern)
     provideHttpClient(withInterceptorsFromDi()),
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    PokemonService
   ]
 };
 
