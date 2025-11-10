@@ -1,4 +1,9 @@
+
+
 <div class="card">
+
+  <input type ="text" (input)="getPokemon($any($event.target).value)">
+
   <!-- Como sei que uma div é filho do outro? Como sei que uma div é filha da outra? Uso o padrão BEM (Bloco__Elemento--Modificador). Repito o nome da classe pai (card) e adiciono dois underlines (__) e o nome da classe filho (title). Ex: card__stats__type -->
 
   <div class="card__title">
@@ -8,7 +13,7 @@
   <div class="card__body">
     <!-- A 'src' da imagem também será dinâmica, vinda do .ts
     Estou usando a property binding do Angular, que é feita com colchetes [] -->
-    <img [src]="pokemon.sprites.front_default" alt="imagem de um pokemon">
+    <img [src]="pokemon.sprites.front_default" height="150" alt="imagem de um pokemon">
   </div>
   <div class="card__stats">
     <!-- *ngFor é uma diretiva estrutural do Angular que permite percorrer sobre uma coleção de itens e renderizar um template para cada item.

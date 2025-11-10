@@ -24,6 +24,10 @@
   margin-left: auto;
   margin-right: auto;
   height: 70%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card__stats {
@@ -39,7 +43,7 @@
 
   background-color: coral;
   border-radius: 5px;
-  
+
   padding: 5px;
   margin-right: 3px; /*espaçamento entre os elementos quando houver mais de uma tipagem p/ o pokemon. */
 }
