@@ -49,8 +49,8 @@ Minha arquitetura é guiada pelo princípio de separação de responsabilidades 
 #### **Padrão de Componentes (Container/Presentation)**
 Aplicamos o padrão **Smart/Dumb Components** para maximizar a reusabilidade e testabilidade:
 
-| Tipo de Componente | Função Principal | Exemplo |
-| :--- | :--- | :--- |
+| Tipo de Componente | Função Principal | 
+| :--- | :--- |
 | **Smart (Container)** | Gerencia o estado, injeta serviços e busca dados da API (Ex: `PostListComponent`). |
 | **Dumb (Presentation)** | Focado apenas na renderização da interface, recebe dados via `@Input()` e emite eventos via `@Output()` (Ex: `PostCardComponent`). |
 
